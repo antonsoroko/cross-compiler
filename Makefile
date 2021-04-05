@@ -29,14 +29,16 @@ all:
 	done
 
 base:
-	$(DOCKER) build -t $(IMAGE):base .
+	$(DOCKER) build -t $(PROJECT)/$(IMAGE):base -f debian.Dockerfile .
 
-$(PLATFORMS): base
-	$(DOCKER) build -t $(IMAGE):$@ -f docker/$@.Dockerfile docker
+musl:
+	$(DOCKER) build -t $(PROJECT)/$(IMAGE):musl -f musl.Dockerfile .
+
+$(PLATFORMS): base musl
+	$(DOCKER) build -t $(PROJECT)/$(IMAGE):$@ -f docker/$@.Dockerfile docker
 
 push:
-	docker tag cross-compiler:$(PLATFORM) $(PROJECT)/cross-compiler:$(PLATFORM)
-	docker push $(PROJECT)/cross-compiler:$(PLATFORM)
+	docker push $(PROJECT)/$(IMAGE):$(PLATFORM)
 
 push-all:
 	for i in $(PLATFORMS); do \
@@ -44,8 +46,7 @@ push-all:
 	done
 
 pull:
-	docker pull $(PROJECT)/cross-compiler:$(PLATFORM)
-	docker tag $(PROJECT)/cross-compiler:$(PLATFORM) cross-compiler:$(PLATFORM)
+	docker pull $(PROJECT)/$(IMAGE):$(PLATFORM)
 
 pull-all:
 	for i in $(PLATFORMS); do \

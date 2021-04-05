@@ -1,4 +1,4 @@
-FROM cross-compiler:base
+FROM elementumorg/cross-compiler:base
 
 ENV CROSS_TRIPLE aarch64-linux-android
 ENV CROSS_ROOT /usr/${CROSS_TRIPLE}

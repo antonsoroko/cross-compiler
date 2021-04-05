@@ -1,4 +1,4 @@
-FROM cross-compiler:base
+FROM elementumorg/cross-compiler:base
 
 RUN apt-get update && \ 
     apt-get -y install crossbuild-essential-armhf

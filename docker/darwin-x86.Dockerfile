@@ -1,4 +1,4 @@
-FROM cross-compiler:base
+FROM elementumorg/cross-compiler:base
 
 ENV CROSS_TRIPLE i386-apple-darwin15
 ENV CROSS_ROOT /usr/${CROSS_TRIPLE}
