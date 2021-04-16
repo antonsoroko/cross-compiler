@@ -6,7 +6,7 @@ ENV PATH ${PATH}:${CROSS_ROOT}/bin:${CROSS_ROOT}/go/bin
 ENV LD_LIBRARY_PATH ${CROSS_ROOT}/lib:${LD_LIBRARY_PATH}
 ENV PKG_CONFIG_PATH ${CROSS_ROOT}/lib/pkgconfig:${PKG_CONFIG_PATH}
 
-RUN apt-get update && apt-get install -y python
+RUN apt-get update && apt-get install -y python zlib1g-dev libcurl4-openssl-dev
 
 ENV NDK android-ndk-r20b
 
