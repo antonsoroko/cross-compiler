@@ -66,3 +66,7 @@ Either build all images with:
 Or selectively build platforms:
 
     make darwin-x64
+
+## Release
+
+Release is done by running `release.sh` script, that compiles all Docker images and pushes them to Docker Hub.
