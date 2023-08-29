@@ -15,6 +15,7 @@ PLATFORMS = \
 	darwin-x86 \
 	linux-armv6 \
 	linux-armv7 \
+	linux-armv7_softfp \
 	linux-arm64 \
 	linux-x64 \
 	linux-x86 \
